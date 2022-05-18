@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const state = useSelector((state) => state.handleCart);
+  // console.log(">>>", state);
   return (
     <div>
       <nav

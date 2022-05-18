@@ -25,14 +25,18 @@ const handleCart = (state = cart, action) => {
       break;
 
     case "DELITEM":
-      const exist1 = state.find((item) => item.id === product.id);
-      if (exist1.qty === 1) {
-        return state.filter((item) => item.id === exist1.id);
-      } else {
-        return state.map((item) =>
-          item.id !== product.id ? { ...xdescribe, qty: item.qty } : item
-        );
-      }
+      // const exist1 = state.find((item) => item.id === product.id);
+      // if (exist1.qty === 1) {
+      //   return state.filter((item) => item.id !== exist1.id);
+      // } else {
+      //   return state.map((item) =>
+      //     item.id === product.id ? { ...item, qty: item.qty - 1 } : item
+      //   );
+      // }
+
+      return (state = state.filter((item) => {
+        return item.id !== product.id;
+      }));
       break;
     default:
       return state;
